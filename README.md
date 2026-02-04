@@ -38,6 +38,27 @@ Prioritize clarity of eligibility and speed to activation. Show only location-el
 
 
 
+### Deploying to Heroku
+
+This repo is configured for a simple Node deployment that serves the static prototype in `prototype/` via `http-server`.
+
+Prerequisites:
+- Install the Heroku CLI and authenticate: `heroku login`
+
+Steps:
+1) Create an app (or use an existing one):
+   - `heroku create <your-app-name>`
+2) Push the code to Heroku:
+   - `git push heroku main`
+3) Scale the web dyno (first time only):
+   - `heroku ps:scale web=1`
+4) Open the app:
+   - `heroku open`
+
+Notes:
+- The `Procfile` runs `npm start`, which serves `prototype/` on the port provided by Heroku.
+- No build step is required; assets are static HTML/CSS/JS.
+- Local preview remains available via `npm run dev`.
 
 
 
